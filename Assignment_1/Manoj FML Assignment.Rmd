@@ -1,0 +1,49 @@
+---
+title: "FML ASSIGNMENT MANOJ"
+output: html_document
+---
+
+```{r}
+#I have taken my dataset from kaggle(Most streamed spotify songs 2023 {https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023})
+#Imported my dataset from excel file
+library(readxl)
+newdata <- read_excel("C:\\Users\\yadla sreebhavya\\Downloads\\spotify data 20232.xlsx")
+```
+
+```{r summary-quantitative}
+#Produced summary statistics for both the numerical and categorical variables within the dataset.
+summary(newdata)
+
+
+
+```
+
+```{r}
+#Transforming a Numeric Variable using log Transformation
+
+newdata$in_spotify_playlists <- log(newdata$in_spotify_playlists)
+head(newdata$in_spotify_playlists)
+
+```
+
+
+```{r}
+#Histogram for "SPOTIFY PLAYLISTS"
+
+hist(newdata$in_spotify_playlists, main = "quantitative variables", xlab = " SPOTIFY PLAYLISTS", col ='seagreen')
+
+```
+
+```{r}
+ #Histogram for "APPLE PLAYLISTS"
+
+hist(newdata$in_apple_playlists, main = "quantitative variables", xlab = " APPLE PLAYLISTS", col ='firebrick')
+
+```
+
+```{r}
+#Scatterplot for Released Year vs. Streams
+
+plot(newdata$released_year,newdata$streams ,main = " Released year vs Streams", xlab = "Released year", ylab = "Streams", col = "purple", pch = 18)
+
+```
